@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Personal Loan up to ₹5 Lakh, 100% Online | GetMeFunds</title>
-<meta name="description" content="Personal loan from ₹50,000 to ₹5 Lakh. Rates from 13% p.a.*, tenure 12–36 months, no collateral, no guarantor, no branch visit. Check eligibility in 60 seconds.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+<meta name="format-detection" content="telephone=no">
+<title>Personal Loan up to ₹10 Lakh, 100% Online | GetMeFunds</title>
+<meta name="description" content="Personal loan from ₹50,000 to ₹10 Lakh. Rates from 13% p.a.*, tenure 12–36 months, no collateral, no guarantor, no branch visit. Check eligibility in 60 seconds.">
 <meta name="theme-color" content="#0A2463">
-<meta property="og:title" content="GetMeFunds | Personal Loan up to ₹5 Lakh">
+<meta property="og:title" content="GetMeFunds | Personal Loan up to ₹10 Lakh">
 <meta property="og:description" content="No collateral. No guarantor. 100% digital. Check your eligibility in 60 seconds.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -259,25 +260,167 @@ footer .links{display:flex;gap:16px;flex-wrap:wrap;margin:14px 0;font-weight:700
 .toast{position:fixed;left:50%;top:76px;transform:translate(-50%,-30px);opacity:0;z-index:80;background:var(--navy);color:#fff;font-weight:600;font-size:14px;padding:12px 18px;border-radius:12px;transition:all .3s;pointer-events:none;max-width:90vw;text-align:center}
 .toast.show{transform:translate(-50%,0);opacity:1}
 
-/* ---------- responsive ---------- */
-@media (max-width:639px){
-  .hero{padding:16px 0 40px!important}
-  h1{font-size:31px;letter-spacing:-.8px;margin:12px 0 8px}
-  .lede{font-size:15px}
-  .lede .long{display:none}
-  .pills{flex-wrap:nowrap;overflow-x:auto;margin:14px -20px 0;padding:0 20px 4px;scrollbar-width:none}
-  .pills::-webkit-scrollbar{display:none}
-  .pill{flex:0 0 auto;font-size:12.5px;padding:7px 11px}
-  .hero-grid{gap:18px}
-  .top-pill{font-size:11.5px;padding:6px 10px}
-  .eyebrow{font-size:11px}
+/* ---------- congratulations screen ---------- */
+.ref-pill{display:inline-flex;gap:6px;align-items:center;font-size:13px;color:var(--ink-soft);background:var(--sky-2);border:1px solid var(--line);padding:6px 12px;border-radius:99px;margin:4px 0 14px}
+.ref-pill b{font-family:ui-monospace,Menlo,monospace;color:var(--ink)}
+.view[data-view="done"]{text-align:center}
+.celebrate{position:relative;width:118px;height:118px;margin:8px auto 10px}
+.celebrate .ring{position:absolute;inset:0;border-radius:50%;border:3px solid var(--leaf);opacity:0}
+.view.active .celebrate .r1{animation:ringOut 1.6s .35s ease-out infinite}
+.view.active .celebrate .r2{animation:ringOut 1.6s 1.15s ease-out infinite}
+@keyframes ringOut{0%{transform:scale(.7);opacity:.55}100%{transform:scale(1.55);opacity:0}}
+.tick-anim{position:relative;width:118px;height:118px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#3FD69A,var(--leaf));box-shadow:0 18px 40px -12px rgba(14,165,107,.7);transform:scale(0)}
+.view.active .tick-anim{animation:pop .6s cubic-bezier(.2,1.6,.4,1) forwards}
+.tick-anim circle{fill:none;stroke:rgba(255,255,255,.35);stroke-width:2}
+.tick-anim path{fill:none;stroke:#fff;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:40;stroke-dashoffset:40}
+.view.active .tick-anim path{animation:draw .5s .45s ease-out forwards}
+@keyframes pop{to{transform:scale(1)}}
+@keyframes draw{to{stroke-dashoffset:0}}
+.cg-wrap > *{opacity:0;transform:translateY(12px)}
+.view.active .cg-wrap > *{animation:rise .5s ease-out forwards}
+.view.active .cg-wrap > *:nth-child(1){animation-delay:.7s}.view.active .cg-wrap > *:nth-child(2){animation-delay:.8s}.view.active .cg-wrap > *:nth-child(3){animation-delay:.9s}
+.view.active .cg-wrap > *:nth-child(4){animation-delay:1s}.view.active .cg-wrap > *:nth-child(5){animation-delay:1.1s}.view.active .cg-wrap > *:nth-child(6){animation-delay:1.2s}
+.view.active .cg-wrap > *:nth-child(7){animation-delay:1.3s}.view.active .cg-wrap > *:nth-child(8){animation-delay:1.4s}
+@keyframes rise{to{opacity:1;transform:none}}
+.q-badge{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--leaf);background:var(--leaf-l);padding:5px 12px;border-radius:99px;margin-bottom:8px}
+.congrats{font-size:28px!important;background:linear-gradient(100deg,var(--blue) 5%,#7A4DFF 50%,var(--saffron) 95%);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:4px!important}
+.q-line{font-size:16.5px;font-weight:700;color:var(--ink);margin-bottom:16px}
+.ref-card{background:var(--navy);color:#fff;border-radius:16px;padding:14px;margin-bottom:12px}
+.ref-card small{display:block;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#B9C6EE}
+.ref-card b{display:block;font-family:ui-monospace,Menlo,monospace;font-size:22px;letter-spacing:1px;color:var(--gold);margin-top:2px}
+.info-card{display:flex;gap:12px;align-items:flex-start;text-align:left;border-radius:16px;padding:14px;margin-bottom:10px;font-size:13.5px;color:var(--ink-2);line-height:1.45}
+.info-card b{color:var(--ink)}
+.info-card > span:last-child > b:first-child{display:block;font-size:14.5px;margin-bottom:2px}
+.info-card .ic{flex:0 0 40px;height:40px;border-radius:12px;display:grid;place-items:center;color:#fff}
+.info-card .ic svg{width:22px;height:22px}
+.info-card.wa{background:#E9FBF0;border:1px solid #B9EDCD}.info-card.wa .ic{background:#25D366}
+.info-card.call{background:var(--sky-2);border:1px solid var(--line)}.info-card.call .ic{background:var(--blue)}
+.info-card #doneCallText{display:block}
+.thanks{font-weight:700;color:var(--ink-soft);margin:6px 0 14px}
+.confetti{position:fixed;inset:0;pointer-events:none;z-index:65;overflow:hidden}
+.confetti i{position:absolute;top:-14px;width:9px;height:14px;border-radius:2px;opacity:.95;animation:fall linear forwards}
+@keyframes fall{to{transform:translate3d(var(--dx),110vh,0) rotate(var(--rot));opacity:.9}}
+@media (prefers-reduced-motion:reduce){.tick-anim{transform:none}.tick-anim path{stroke-dashoffset:0}.cg-wrap > *{opacity:1;transform:none}.confetti{display:none}}
+
+/* =====================================================================
+   MOBILE-FIRST LAYER (customer UI). Base = phone; min-width queries add
+   tablet/desktop. Hover effects only on devices that can hover.
+   ===================================================================== */
+button,a,label,.chip,.opt,.slot,.big-opt,.upl{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+input,select,textarea{font-size:16px}                  /* stops iOS zoom-on-focus */
+.hero{padding:14px 0 36px}
+h1{font-size:30px;letter-spacing:-.9px;line-height:1.1;margin:12px 0 8px}
+.lede{font-size:15px}
+.lede .long{display:none}
+.eyebrow{font-size:11px;padding:6px 11px}
+.top-pill{font-size:11.5px;padding:6px 10px}
+.topbar .wrap{height:58px}
+.hero-grid{gap:16px}
+/* swipeable rows on phones */
+.pills,.uses{flex-wrap:nowrap;overflow-x:auto;margin-left:-20px;margin-right:-20px;padding:0 20px 4px;scrollbar-width:none;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+.pills{margin-top:14px}
+.pills::-webkit-scrollbar,.uses::-webkit-scrollbar,.features::-webkit-scrollbar{display:none}
+.pill,.use{flex:0 0 auto;scroll-snap-align:start}
+.pill{font-size:12.5px;padding:7px 11px}
+/* form card: roomy touch targets, thumb-friendly */
+.form-card{padding:20px 16px 16px;border-radius:22px;scroll-margin-top:66px}
+.slide h3{font-size:23px}
+.slide .sub{font-size:13.5px;margin-bottom:14px}
+.field{margin-bottom:16px}
+.inp input{padding:15px 14px;min-height:54px}
+.chip{min-height:44px;padding:10px 16px;font-size:14.5px}
+.chip:active,.opt:active,.slot:active,.big-opt:active,.btn:active,.upl:active{transform:scale(.97)}
+.opt{min-height:96px;padding:14px 12px}
+.toggle-zero{display:inline-block;padding:10px 0 2px}
+.btn{min-height:56px}
+.nav-row .back{width:56px;height:56px}
+.amount-display .big{font-size:36px}
+.secure-line{font-size:11.5px;text-align:center}
+@media (pointer:coarse){
+  input[type=range]{height:10px;margin:14px 0 8px}
+  input[type=range]::-webkit-slider-thumb{width:34px;height:34px;border-width:7px}
+  input[type=range]::-moz-range-thumb{width:22px;height:22px}
 }
+/* sections: tighter on phones, swipe carousel for features */
+section{padding:48px 0}
+.sec-head{margin-bottom:22px}
+h2{font-size:28px;letter-spacing:-.8px}
+.sec-head p{font-size:15px}
+.stats-band{padding:24px 0}
+.stat b{font-size:26px}
+.stat span{font-size:12.5px}
+.features{display:grid;grid-auto-flow:column;grid-auto-columns:80%;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -20px;padding:2px 20px 10px;gap:12px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.feat{scroll-snap-align:start;padding:20px}
+.swipe-hint{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--ink-soft);margin:-10px 0 12px}
+.calc{padding:18px;gap:16px;border-radius:20px}
+.calc-out{padding:20px}
+.calc-out .emi-big{font-size:40px}
+.step{padding:18px 18px 18px 70px}
+.step:before{left:16px;top:16px}
+.box{padding:20px}
+.rate-big{font-size:60px}
+.faq summary{padding:16px 52px 16px 16px;font-size:15px;min-height:56px;display:flex;align-items:center}
+.faq details p{padding:0 16px 16px}
+.cta-band{padding:34px 20px;border-radius:24px}
+footer{padding:34px 0 calc(110px + env(safe-area-inset-bottom))}
+/* below-the-fold sections render lazily = faster first paint on phones */
+#why,#emi,#how,#eligibility,#faq,footer{content-visibility:auto;contain-intrinsic-size:auto 900px}
+/* bottom sheet (post-submit) */
+.modal{max-height:92vh;max-height:92dvh;padding:12px 18px calc(18px + env(safe-area-inset-bottom));overscroll-behavior:contain}
+.modal:before{content:"";display:block;width:44px;height:5px;border-radius:99px;background:#D5DCEB;margin:0 auto 14px}
+.modal h3{font-size:24px}
+.m-badge{width:56px;height:56px;border-radius:18px}
+.big-opt{padding:16px;min-height:78px}
+.slots{grid-template-columns:repeat(2,1fr)}
+.slot{min-height:50px;font-size:14.5px}
+.sheet-actions{position:sticky;bottom:calc(-18px - env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(255,255,255,0),#fff 22%);margin:0 -18px;padding:18px 18px calc(18px + env(safe-area-inset-bottom));z-index:2}
+.sheet-actions .btn{margin-top:0!important}
+/* customer document page */
+.ds-wrap{padding:16px 14px 0}
+.ds-card{padding:22px 16px;border-radius:22px}
+.ds-card h3{font-size:23px}
+.upl{min-height:76px}
+.ds-actions{position:sticky;bottom:0;z-index:3;background:#fff;border-top:1px solid var(--line);box-shadow:0 -10px 24px -14px rgba(16,24,64,.25);margin:6px -16px 0;padding:12px 16px calc(12px + env(safe-area-inset-bottom))}
+.ds-actions .btn[disabled]{opacity:1;background:#C7CFE2;box-shadow:none}
+.ds-actions .btn[disabled]::after{display:none}
+.toast{top:calc(64px + env(safe-area-inset-top));font-size:13.5px;padding:10px 16px;box-shadow:0 12px 30px -10px rgba(10,36,99,.5)}
+.ds-actions .hint{text-align:center;margin-top:8px}
+/* hover only where a mouse exists */
+@media (hover:none){
+  .feat:hover,.btn-primary:hover{transform:none}
+  .upl:hover,.big-opt:hover{border-color:var(--line)}
+  .upl.done:hover{border-color:#9FDEC4}
+}
+
 @media (min-width:640px){
-  .features{grid-template-columns:repeat(2,1fr)}
+  .hero{padding:28px 0 56px}
+  h1{font-size:clamp(34px,5.6vw,52px);letter-spacing:-1.6px;margin:16px 0 14px}
+  .lede{font-size:17px}
+  .lede .long{display:inline}
+  .pills,.uses{flex-wrap:wrap;overflow:visible;margin-left:0;margin-right:0;padding:0}
+  .pill{font-size:13.5px;padding:8px 12px}
+  .eyebrow{font-size:12.5px}
+  .top-pill{font-size:12.5px;padding:7px 12px}
+  .topbar .wrap{height:62px}
+  .form-card{padding:24px 24px 20px}
+  .features{grid-auto-flow:row;grid-auto-columns:auto;grid-template-columns:repeat(2,1fr);overflow:visible;margin:0;padding:0}
+  .swipe-hint{display:none}
+  section{padding:64px 0}
+  h2{font-size:clamp(30px,4.4vw,44px)}
+  .sec-head p{font-size:16.5px}
   .stats{grid-template-columns:repeat(4,1fr)}
+  .stat b{font-size:32px}
   .slots{grid-template-columns:repeat(3,1fr)}
   .overlay{align-items:center}
-  .modal{border-radius:26px;padding:30px 28px}
+  .modal{border-radius:26px;padding:30px 28px;max-height:90vh}
+  .modal:before{display:none}
+  .sheet-actions{position:static;background:none;margin:0;padding:18px 0 0}
+  .calc{padding:24px}
+  .rate-big{font-size:72px}
+  .ds-wrap{padding:26px 18px 60px}
+  .ds-card{padding:32px 30px}
+  .ds-actions{position:static;background:none;border:0;box-shadow:none;margin:6px 0 0;padding:8px 0 0}
+  .toast{top:76px;font-size:14px;padding:12px 18px}
 }
 @media (min-width:960px){
   .hero{padding:56px 0 80px}
@@ -291,6 +434,7 @@ footer .links{display:flex;gap:16px;flex-wrap:wrap;margin:14px 0;font-weight:700
   .calc{grid-template-columns:1.1fr .9fr;padding:32px}
   .steps{grid-template-columns:repeat(4,1fr)}
   .step{padding:76px 22px 22px}
+  .step:before{left:20px;top:20px}
   .two-col{grid-template-columns:1fr 1fr}
   .cta-band{padding:60px 40px}
   .sticky-cta{display:none}
@@ -334,11 +478,11 @@ footer .links{display:flex;gap:16px;flex-wrap:wrap;margin:14px 0;font-weight:700
 
 <main id="top">
 <!-- ============ HERO + FORM ============ -->
-<section class="hero" style="padding-top:22px">
+<section class="hero">
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <span class="eyebrow"><svg width="14" height="14"><use href="#i-bolt"/></svg> Fast-track processing this week</span>
-      <h1>Personal loan up to <em>₹5&nbsp;Lakh</em>, without the running around.</h1>
+      <h1>Personal loan up to <em>₹10&nbsp;Lakh</em>, without the running around.</h1>
       <p class="lede">100% online. No collateral, no guarantor, no branch visit.<span class="long"> Check your eligibility in 60 seconds and talk to a GetMeFunds expert today.</span></p>
       <div class="pills">
         <span class="pill"><svg><use href="#i-checkc"/></svg>Rates from 13% p.a.*</span>
@@ -347,7 +491,7 @@ footer .links{display:flex;gap:16px;flex-wrap:wrap;margin:14px 0;font-weight:700
         <span class="pill"><svg><use href="#i-checkc"/></svg>Zero hidden charges</span>
       </div>
       <div class="stats">
-        <div class="stat"><b>₹50K–₹5L</b><span>Loan amount</span></div>
+        <div class="stat"><b>₹50K–₹10L</b><span>Loan amount</span></div>
         <div class="stat"><b>₹1,685</b><span>EMI from, per month*</span></div>
         <div class="stat"><b>₹0</b><span>Prepayment fee (own funds)</span></div>
       </div>
@@ -368,12 +512,12 @@ footer .links{display:flex;gap:16px;flex-wrap:wrap;margin:14px 0;font-weight:700
           <p class="sub">Free, quick, and it won't affect your credit score.</p>
           <div class="field" data-f="name">
             <label for="name">Full name <small>(as on PAN card)</small></label>
-            <div class="inp"><input id="name" name="name" type="text" placeholder="e.g. Rahul Kumar Sharma" autocomplete="name" maxlength="80" autocapitalize="words"></div>
+            <div class="inp"><input id="name" name="name" type="text" enterkeyhint="next" placeholder="e.g. Rahul Kumar Sharma" autocomplete="name" maxlength="80" autocapitalize="words"></div>
             <div class="err-msg">Please enter your full name as on PAN</div>
           </div>
           <div class="field" data-f="mobile">
             <label for="mobile">Mobile number</label>
-            <div class="inp"><span class="pre">+91</span><input id="mobile" name="mobile" type="tel" inputmode="numeric" placeholder="10-digit mobile" autocomplete="tel-national" maxlength="10"><span class="suf" id="mobOk"></span></div>
+            <div class="inp"><span class="pre">+91</span><input id="mobile" name="mobile" type="tel" enterkeyhint="go" inputmode="numeric" placeholder="10-digit mobile" autocomplete="tel-national" maxlength="10"><span class="suf" id="mobOk"></span></div>
             <div class="err-msg">Enter a valid 10-digit mobile number</div>
           </div>
           <button type="button" class="btn btn-primary" data-next>Check my eligibility <svg><use href="#i-arrow"/></svg></button>
@@ -386,15 +530,16 @@ footer .links{display:flex;gap:16px;flex-wrap:wrap;margin:14px 0;font-weight:700
           <p class="sub">Slide to choose. You can change it later.</p>
           <div class="amount-display">
             <div class="big" id="amtBig">₹1,50,000</div>
-            <div class="emi">EMI from<b id="amtEmi">₹5,054/mo*</b></div>
           </div>
-          <input type="range" id="loanAmount" min="50000" max="500000" step="10000" value="150000" aria-label="Loan amount">
-          <div class="range-ends"><span>₹50K</span><span>₹5 Lakh</span></div>
+          <input type="range" id="loanAmount" min="50000" max="1000000" step="10000" value="150000" aria-label="Loan amount">
+          <div class="range-ends"><span>₹50K</span><span>₹10 Lakh</span></div>
           <div class="chips" style="margin-bottom:18px" id="amtChips">
             <button type="button" class="chip" data-amt="100000">₹1 Lakh</button>
             <button type="button" class="chip sel" data-amt="150000">₹1.5 Lakh</button>
             <button type="button" class="chip" data-amt="200000">₹2 Lakh</button>
             <button type="button" class="chip" data-amt="300000">₹3 Lakh</button>
+            <button type="button" class="chip" data-amt="500000">₹5 Lakh</button>
+            <button type="button" class="chip" data-amt="1000000">₹10 Lakh</button>
           </div>
           <div class="field" data-f="employmentType">
             <label>I am</label>
@@ -416,12 +561,12 @@ footer .links{display:flex;gap:16px;flex-wrap:wrap;margin:14px 0;font-weight:700
           <p class="sub">This helps us match you to the right offer.</p>
           <div class="field" data-f="employerName">
             <label for="employerName" id="empLabel">Employer name</label>
-            <div class="inp"><input id="employerName" type="text" placeholder="e.g. Infosys Ltd" maxlength="100" autocomplete="organization"></div>
+            <div class="inp"><input id="employerName" type="text" enterkeyhint="next" autocapitalize="words" placeholder="e.g. Infosys Ltd" maxlength="100" autocomplete="organization"></div>
             <div class="err-msg">Please enter the name</div>
           </div>
           <div class="field" data-f="monthlyIncome">
             <label for="monthlyIncome" id="incLabel">Monthly net salary <small>(in-hand)</small></label>
-            <div class="inp"><span class="pre">₹</span><input id="monthlyIncome" type="text" inputmode="numeric" placeholder="e.g. 45,000" maxlength="11"></div>
+            <div class="inp"><span class="pre">₹</span><input id="monthlyIncome" type="text" enterkeyhint="go" inputmode="numeric" placeholder="e.g. 45,000" maxlength="11"></div>
             <div class="err-msg">Please enter your monthly income</div>
           </div>
           <div class="field" data-f="salaryMode">
@@ -444,22 +589,22 @@ footer .links{display:flex;gap:16px;flex-wrap:wrap;margin:14px 0;font-weight:700
           <p class="sub">Your city and existing EMIs decide your best offer.</p>
           <div class="field" data-f="pincode">
             <label for="pincode">Residence PIN code</label>
-            <div class="inp"><input id="pincode" type="text" inputmode="numeric" placeholder="6-digit PIN" maxlength="6" autocomplete="postal-code"><span class="suf" id="pinStatus"></span></div>
+            <div class="inp"><input id="pincode" type="text" enterkeyhint="next" inputmode="numeric" placeholder="6-digit PIN" maxlength="6" autocomplete="postal-code"><span class="suf" id="pinStatus"></span></div>
             <div class="hint" id="pinCity">City and state will fill in automatically</div>
             <div class="err-msg">Enter a valid 6-digit PIN code</div>
           </div>
           <div class="row2">
-            <div class="field"><label for="city">City</label><div class="inp"><input id="city" type="text" placeholder="City" maxlength="60"></div></div>
-            <div class="field"><label for="state">State</label><div class="inp"><input id="state" type="text" placeholder="State" maxlength="60"></div></div>
+            <div class="field"><label for="city">City</label><div class="inp"><input id="city" type="text" enterkeyhint="next" autocapitalize="words" placeholder="City" maxlength="60"></div></div>
+            <div class="field"><label for="state">State</label><div class="inp"><input id="state" type="text" enterkeyhint="next" autocapitalize="words" placeholder="State" maxlength="60"></div></div>
           </div>
           <div class="field" data-f="bankName">
             <label for="bankName" id="bankLabel">Salary / savings bank account</label>
-            <div class="inp"><input id="bankName" type="text" list="banks" placeholder="Start typing, e.g. HDFC Bank" maxlength="60"></div>
+            <div class="inp"><input id="bankName" type="text" enterkeyhint="next" list="banks" placeholder="Start typing, e.g. HDFC Bank" maxlength="60"></div>
             <div class="err-msg">Please enter your bank name</div>
           </div>
           <div class="field" data-f="currentEmi">
             <label for="currentEmi">Total EMIs you pay every month <small>(all loans + cards)</small></label>
-            <div class="inp"><span class="pre">₹</span><input id="currentEmi" type="text" inputmode="numeric" placeholder="e.g. 8,000" maxlength="10"></div>
+            <div class="inp"><span class="pre">₹</span><input id="currentEmi" type="text" enterkeyhint="go" inputmode="numeric" placeholder="e.g. 8,000" maxlength="10"></div>
             <button type="button" class="toggle-zero" id="noEmi">I don't pay any EMI</button>
             <div class="err-msg">Enter your EMI amount, or tap "I don't pay any EMI"</div>
           </div>
@@ -475,12 +620,12 @@ footer .links{display:flex;gap:16px;flex-wrap:wrap;margin:14px 0;font-weight:700
           <p class="sub">Needed to generate your personalised offer.</p>
           <div class="field" data-f="pan">
             <label for="pan">PAN number</label>
-            <div class="inp"><input id="pan" type="text" placeholder="ABCDE1234F" maxlength="10" autocapitalize="characters" style="text-transform:uppercase;letter-spacing:2px"><span class="suf" id="panOk"></span></div>
+            <div class="inp"><input id="pan" type="text" enterkeyhint="next" autocomplete="off" spellcheck="false" placeholder="ABCDE1234F" maxlength="10" autocapitalize="characters" style="text-transform:uppercase;letter-spacing:2px"><span class="suf" id="panOk"></span></div>
             <div class="err-msg">Enter a valid PAN (e.g. ABCDE1234F)</div>
           </div>
           <div class="field" data-f="dob">
             <label for="dob">Date of birth <small>(DD/MM/YYYY)</small></label>
-            <div class="inp"><input id="dob" type="text" inputmode="numeric" placeholder="DD/MM/YYYY" maxlength="10" autocomplete="bday"><span class="age-badge" id="ageBadge"></span></div>
+            <div class="inp"><input id="dob" type="text" enterkeyhint="done" inputmode="numeric" placeholder="DD/MM/YYYY" maxlength="10" autocomplete="bday"><span class="age-badge" id="ageBadge"></span></div>
             <div class="err-msg" id="dobErr">Enter a valid date of birth</div>
           </div>
           <div class="field" data-f="creditKnown">
@@ -493,7 +638,7 @@ footer .links{display:flex;gap:16px;flex-wrap:wrap;margin:14px 0;font-weight:700
           </div>
           <div class="field" data-f="creditScore" id="cibilScoreField" style="display:none">
             <label for="creditScore">Your credit score <small>(300–900)</small></label>
-            <div class="inp"><input id="creditScore" type="text" inputmode="numeric" placeholder="e.g. 750" maxlength="3"><span class="suf" id="cibilBand"></span></div>
+            <div class="inp"><input id="creditScore" type="text" enterkeyhint="go" inputmode="numeric" placeholder="e.g. 750" maxlength="3"><span class="suf" id="cibilBand"></span></div>
             <div class="err-msg">Enter a score between 300 and 900</div>
           </div>
           <div class="nav-row">
@@ -510,7 +655,7 @@ footer .links{display:flex;gap:16px;flex-wrap:wrap;margin:14px 0;font-weight:700
 <!-- ============ STATS BAND ============ -->
 <div class="stats-band">
   <div class="wrap stats">
-    <div class="stat"><b>₹5 Lakh</b><span>Maximum loan amount</span></div>
+    <div class="stat"><b>₹10 Lakh</b><span>Maximum loan amount</span></div>
     <div class="stat"><b>13%*</b><span>Interest rate p.a. onwards</span></div>
     <div class="stat"><b>36 months</b><span>Flexible repayment</span></div>
     <div class="stat"><b>0</b><span>Collateral or guarantor needed</span></div>
@@ -525,8 +670,9 @@ footer .links{display:flex;gap:16px;flex-wrap:wrap;margin:14px 0;font-weight:700
       <h2>Quick funds for <span class="accent">whatever</span> life throws at you.</h2>
       <p>We take care of the paperwork and the follow-up, so you only deal with one person: your GetMeFunds expert.</p>
     </div>
+    <div class="swipe-hint">Swipe <svg width="14" height="14"><use href="#i-arrow"/></svg></div>
     <div class="features">
-      <div class="feat"><div class="ic"><svg><use href="#i-wallet"/></svg></div><h4>Up to ₹5 Lakh</h4><p>Borrow anything from ₹50,000 to ₹5 Lakh, based on your profile and eligibility.</p></div>
+      <div class="feat"><div class="ic"><svg><use href="#i-wallet"/></svg></div><h4>Up to ₹10 Lakh</h4><p>Borrow anything from ₹50,000 to ₹10 Lakh, based on your profile and eligibility.</p></div>
       <div class="feat"><div class="ic"><svg><use href="#i-shield"/></svg></div><h4>No collateral, no guarantor</h4><p>It's an unsecured loan. You don't pledge assets and you don't need anyone to sign for you.</p></div>
       <div class="feat"><div class="ic"><svg><use href="#i-bolt"/></svg></div><h4>Quick approval</h4><p>Digital checks mean quick decisions. Funds go to your bank account soon after verification.</p></div>
       <div class="feat"><div class="ic"><svg><use href="#i-doc"/></svg></div><h4>Minimal documents</h4><p>PAN, Aadhaar and a salary slip. Upload from your phone; no branch visit needed.</p></div>
@@ -548,7 +694,7 @@ footer .links{display:flex;gap:16px;flex-wrap:wrap;margin:14px 0;font-weight:700
     </div>
     <div class="calc">
       <div>
-        <div class="ctrl"><div class="ctrl-top"><span>Loan amount</span><output id="cAmtO">₹1,50,000</output></div><input type="range" id="cAmt" min="50000" max="500000" step="10000" value="150000"><div class="range-ends"><span>₹50K</span><span>₹5L</span></div></div>
+        <div class="ctrl"><div class="ctrl-top"><span>Loan amount</span><output id="cAmtO">₹1,50,000</output></div><input type="range" id="cAmt" min="50000" max="1000000" step="10000" value="150000"><div class="range-ends"><span>₹50K</span><span>₹10L</span></div></div>
         <div class="ctrl"><div class="ctrl-top"><span>Tenure</span><output id="cTenO">36 months</output></div><input type="range" id="cTen" min="12" max="36" step="6" value="36"><div class="range-ends"><span>12 mo</span><span>36 mo</span></div></div>
         <div class="ctrl" style="margin-bottom:0"><div class="ctrl-top"><span>Interest rate (p.a.)</span><output id="cRateO">15%</output></div><input type="range" id="cRate" min="13" max="36" step="0.5" value="15"><div class="range-ends"><span>13%</span><span>36%</span></div></div>
       </div>
@@ -594,12 +740,13 @@ footer .links{display:flex;gap:16px;flex-wrap:wrap;margin:14px 0;font-weight:700
         <li><svg><use href="#i-checkc"/></svg><span>Minimum household income of <b>₹3 Lakh a year</b> (about ₹25,000 a month)</span></li>
         <li><svg><use href="#i-checkc"/></svg><span>A healthy repayment history helps you get a better rate</span></li>
       </ul>
-      <h3 style="margin-top:26px">Documents</h3>
+      <h3 style="margin-top:26px">Minimum Documents<span style="color:var(--saffron)">*</span></h3>
       <ul class="check-list">
         <li><svg><use href="#i-doc"/></svg><span>PAN card</span></li>
         <li><svg><use href="#i-doc"/></svg><span>Aadhaar card</span></li>
         <li><svg><use href="#i-doc"/></svg><span>Latest salary slip (self-employed: bank statement or ITR)</span></li>
       </ul>
+      <p class="hint" style="margin-top:14px;font-size:13px;line-height:1.5"><b style="color:var(--saffron)">*</b> For loans <b>above ₹5 Lakh</b>: salaried applicants also need the last <b>3 months' salary slips</b> and last <b>6 months' bank statement</b>; self-employed applicants need the last <b>6 months' bank statement</b> (ITR helps), along with PAN and Aadhaar.</p>
     </div>
     <div class="box rate-box">
       <span class="kicker">Interest rate</span>
@@ -670,13 +817,9 @@ footer .links{display:flex;gap:16px;flex-wrap:wrap;margin:14px 0;font-weight:700
     <!-- View: Call preference (first screen after submit) -->
     <div class="view" data-view="call">
       <div class="m-badge ok"><svg><use href="#i-checkc"/></svg></div>
-      <h3 id="mTitle">Application received, <span id="mName">there</span>!</h3>
-      <div class="offer" id="offerBox" style="display:none;margin-top:12px">
-        <small>Indicative eligibility</small>
-        <b id="offerAmt">₹2,00,000</b>
-        <span>Estimate only, based on your inputs. Final amount is decided after credit assessment.</span>
-      </div>
-      <p class="sub"><b style="color:var(--ink);font-size:16px">Start your loan application with an expert now?</b><br>A 5-minute call completes your application. Talking now is the fastest way to your money.</p>
+      <h3 id="mTitle">Application submitted, <span id="mName">there</span>!</h3>
+      <div class="ref-pill">Reference no. <b id="mRef">GMF-000000</b></div>
+      <p class="sub"><b style="color:var(--ink);font-size:16px">One last step: when should our expert call you?</b><br>A 5-minute call completes your application. Talking now is the fastest way to your money.</p>
       <button class="big-opt hot" id="callNow">
         <span class="bi"><svg><use href="#i-phone"/></svg></span>
         <span><b>Yes, call me now <span class="live"><i></i>Live</span></b><span id="callNowSub">An expert will call you in a few minutes</span></span>
@@ -694,22 +837,34 @@ footer .links{display:flex;gap:16px;flex-wrap:wrap;margin:14px 0;font-weight:700
       <p class="sub" id="slotSub">Earlier slots mean faster disbursal.</p>
       <div class="urg"><svg><use href="#i-bolt"/></svg><span>Fast-track processing applies to calls completed in the next few hours.</span></div>
       <div id="slotWrap"></div>
-      <button class="btn btn-primary" id="confirmSlot" style="margin-top:18px" disabled>Confirm call-back <svg><use href="#i-arrow"/></svg></button>
-      <button class="btn btn-ghost" id="slotBack">← Actually, call me now</button>
+      <div class="sheet-actions">
+        <button class="btn btn-primary" id="confirmSlot" disabled>Confirm call-back <svg><use href="#i-arrow"/></svg></button>
+        <button class="btn btn-ghost" id="slotBack">← Actually, call me now</button>
+      </div>
     </div>
 
-    <!-- View: Thank you -->
+    <!-- View: Congratulations (final screen) -->
     <div class="view" data-view="done">
-      <div class="m-badge ok"><svg><use href="#i-checkc"/></svg></div>
-      <h3 id="doneTitle">You're all set!</h3>
-      <p class="sub" id="doneSub">Your GetMeFunds expert will call you shortly.</p>
-      <div>Reference ID <span class="ref" id="refId">GMF-000000</span></div>
-      <ul class="next-list">
-        <li><b>1</b><span>Keep your phone handy. Our call may come from an unknown number.</span></li>
-        <li><b>2</b><span id="docTip">We will send you a secure link to upload your PAN, Aadhaar and salary slip.</span></li>
-        <li><b>3</b><span>Your expert completes the application and shares your offer with full costs.</span></li>
-      </ul>
-      <button class="btn btn-dark" id="doneClose">Done</button>
+      <div class="celebrate">
+        <span class="ring r1"></span><span class="ring r2"></span>
+        <svg class="tick-anim" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24"/><path d="M15 27.5l7.2 7.2L37.5 19"/></svg>
+      </div>
+      <div class="cg-wrap">
+        <span class="q-badge">✓ Qualified</span>
+        <h3 class="congrats">Congratulations, <span id="doneName">there</span>!</h3>
+        <p class="q-line">You are qualified to apply for this loan.</p>
+        <div class="ref-card"><small>Your reference number</small><b id="refId">GMF-000000</b></div>
+        <div class="info-card wa">
+          <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3z"/></svg></span>
+          <span><b>Secure document link on WhatsApp</b>You will receive a dynamic, secured document upload link on WhatsApp at <b id="doneMobile">your number</b>. Please upload your documents on that secured link.</span>
+        </div>
+        <div class="info-card call">
+          <span class="ic"><svg><use href="#i-phone"/></svg></span>
+          <span><b id="doneCallTitle">Your call is booked</b><span id="doneCallText">Our agent will call you as per your choice of calling appointment.</span></span>
+        </div>
+        <p class="thanks">Thank you for choosing GetMeFunds 🙏</p>
+        <button class="btn btn-dark" id="doneClose">Done</button>
+      </div>
     </div>
   </div>
 </div>
@@ -729,7 +884,7 @@ const CONFIG = {
   MAX_UPLOAD_MB: 8,
   PUBLIC_PAGE_URL: '',               // e.g. 'https://getmefunds.in/personal-loan/' — base of the customer upload link (blank = this page's own URL)
   RATE_FOR_PREVIEW: 13,              // EMI preview on slide 2 ("EMI from")
-  ELIG: { rate: 18, months: 36, foir: 0.5, min: 50000, max: 500000 }
+  ELIG: { rate: 18, months: 36, foir: 0.5, min: 50000, max: 1000000 }
 };
 
 /* Which screen to show: customer document page (?docs=token), CRM (#crm) or the landing page */
@@ -743,7 +898,7 @@ const inr = n => '₹' + Math.round(n).toLocaleString('en-IN');
 const digits = s => String(s||'').replace(/\D/g,'');
 const emiCalc = (p, rate, n) => { const r = rate/1200; return p*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1); };
 const uid = (p='') => p + Date.now().toString(36) + Math.random().toString(36).slice(2,8);
-function toast(msg){ const t=$('#toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove('show'),3200); }
+function toast(msg){ const t=$('#toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove('show'),2400); }
 function fbq_(ev, params){ try{ if(window.fbq) fbq('track', ev, params||{}); }catch(e){} }
 $('#yr').textContent = new Date().getFullYear();
 
@@ -836,7 +991,7 @@ function setErr(f, on, msg){ const el = $(`.field[data-f="${f}"]`); if (!el) ret
 /* ---------- inputs & formatting ---------- */
 const amt = $('#loanAmount');
 function paintRange(r){ r.style.setProperty('--p', ((r.value-r.min)/(r.max-r.min)*100)+'%'); }
-function onAmt(){ const v=+amt.value; $('#amtBig').textContent = inr(v); $('#amtEmi').textContent = inr(emiCalc(v, CONFIG.RATE_FOR_PREVIEW, 36)) + '/mo*'; paintRange(amt); $$('#amtChips .chip').forEach(c=>c.classList.toggle('sel', +c.dataset.amt===v)); lead.data.loanAmount = v; }
+function onAmt(){ const v=+amt.value; $('#amtBig').textContent = inr(v); paintRange(amt); $$('#amtChips .chip').forEach(c=>c.classList.toggle('sel', +c.dataset.amt===v)); lead.data.loanAmount = v; }
 amt.addEventListener('input', onAmt);
 $$('#amtChips .chip').forEach(c => c.addEventListener('click', () => { amt.value = c.dataset.amt; onAmt(); }));
 
@@ -939,7 +1094,7 @@ $$('[data-next]').forEach(b => b.addEventListener('click', async () => {
   } else {
     sync(current, {}, 'step_' + current);
   }
-  if (current < TOTAL){ showSlide(current + 1); return; }
+  if (current < TOTAL){ showSlide(current + 1); history.pushState({ gmfStep: current }, ''); return; }
   // Final submit
   const btn = $('#submitBtn'); btn.disabled = true; btn.innerHTML = '<span class="spinner"></span> Checking your offer…';
   lead.submitted = true;
@@ -949,8 +1104,46 @@ $$('[data-next]').forEach(b => b.addEventListener('click', async () => {
   btn.disabled = false; btn.innerHTML = 'Get my offer <svg><use href="#i-arrow"/></svg>';
   openModal();
 }));
-$$('[data-prev]').forEach(b => b.addEventListener('click', () => { collect(current); if (current>1) showSlide(current-1, true); }));
-$('#leadForm').addEventListener('keydown', e => { if (e.key === 'Enter' && e.target.tagName === 'INPUT'){ e.preventDefault(); $('.slide.active [data-next]').click(); } });
+$$('[data-prev]').forEach(b => b.addEventListener('click', () => {
+  collect(current);
+  if (history.state && history.state.gmfStep > 1) history.back();   // popstate handles it
+  else if (current > 1) showSlide(current-1, true);
+}));
+/* Android/iOS back gesture: go to the previous slide instead of leaving the page */
+window.addEventListener('popstate', e => {
+  if (MODE !== 'landing') return;
+  const st = e.state || {};
+  if ($('#overlay').classList.contains('open')){
+    const v = $('.view.active') && $('.view.active').dataset.view;
+    if (v === 'slots'){ view('call'); history.pushState({ gmfSheet:1 }, ''); return; }
+    if (v === 'call'){ history.pushState({ gmfSheet:1 }, ''); toast('Choose "Call me now" or pick a call-back time'); return; }
+    $('#overlay').classList.remove('open'); document.body.style.overflow=''; return;
+  }
+  const target = st.gmfStep || 1;
+  if (target < current){ collect(current); showSlide(target, true); }
+});
+$('#leadForm').addEventListener('keydown', e => {
+  if (e.key !== 'Enter' || e.target.tagName !== 'INPUT') return;
+  e.preventDefault();
+  const fields = $$('.slide.active input:not([type=range])').filter(i => i.offsetParent !== null);
+  const next = fields.slice(fields.indexOf(e.target) + 1).find(i => !i.value);
+  if (next) next.focus(); else { e.target.blur(); $('.slide.active [data-next]').click(); }
+});
+/* Phones: keep the focused field visible above the keyboard; light haptic on taps */
+const isTouch = matchMedia('(pointer:coarse)').matches;
+const buzz = () => { try { if (isTouch && navigator.vibrate) navigator.vibrate(8); } catch(e){} };
+document.addEventListener('focusin', e => {
+  if (!isTouch || !e.target.matches('.form-card input, .modal input')) return;
+  setTimeout(() => e.target.scrollIntoView({ block:'center', behavior:'smooth' }), 320);
+});
+document.addEventListener('click', e => { if (e.target.closest('.chip, .opt, .slot, .big-opt, [data-next]')) buzz(); });
+/* Auto-advance focus once a fixed-length field is complete */
+['pincode','dob'].forEach(id => $('#'+id).addEventListener('input', e => {
+  const full = id==='pincode' ? e.target.value.length===6 : e.target.value.length===10;
+  if (!full || !isTouch) return;
+  const nxt = id==='pincode' ? $('#bankName') : null;
+  if (nxt && !nxt.value) setTimeout(() => nxt.focus(), 450); else if (!nxt) e.target.blur();
+}));
 
 /* ---------- resume an unfinished application (same device, within 12h) ---------- */
 (function resume(){
@@ -969,7 +1162,7 @@ $('#leadForm').addEventListener('keydown', e => { if (e.key === 'Enter' && e.tar
   if (D.salaryMode){ const b = $(`#modeChips [data-val="${D.salaryMode}"]`); b && b.classList.add('sel'); }
   if (D.creditKnown){ const b = $(`#cibilChips [data-val="${D.creditKnown}"]`); b && b.classList.add('sel'); if (D.creditKnown==='Yes'){ $('#cibilScoreField').style.display='block'; if (D.creditScore) $('#creditScore').value = D.creditScore; } }
   const step = Math.min(Math.max(+s.step||1,1),TOTAL);
-  if (step > 1){ showSlide(step); toast('Welcome back! Continue where you left off.'); }
+  if (step > 1){ showSlide(step); history.replaceState({ gmfStep: step }, ''); toast('Welcome back! Continue where you left off.'); }
 })();
 onAmt();
 
@@ -978,9 +1171,9 @@ function view(name){ $$('.view').forEach(v => v.classList.toggle('active', v.dat
 function openModal(){
   const D = lead.data;
   $('#mName').textContent = (D.name||'').split(' ')[0] || 'there';
-  const e = indicativeAmount(D);
-  if (e){ $('#offerAmt').textContent = 'Up to ' + inr(e); $('#offerBox').style.display = 'block'; }
+  $('#mRef').textContent = lead.id;
   $('#overlay').classList.add('open'); document.body.style.overflow = 'hidden';
+  history.pushState({ gmfSheet:1 }, '');
   const off = isOffice(istNow());
   $('#callNowSub').textContent = off ? 'An expert will call you in a few minutes' : `You'll be first in line when experts log in at ${fmtHour(CONFIG.OFFICE.start)}`;
   view('call');
@@ -1007,9 +1200,8 @@ $('#callNow').addEventListener('click', () => {
   sync(8, { callPreference:'CALL NOW', callbackSlot:'', callbackTime:'' }, 'call_now');
   fbq_('Contact');
   const off = isOffice(istNow());
-  $('#doneTitle').textContent = off ? 'Great! Expect our call shortly.' : 'You\'re first in the queue!';
-  $('#doneSub').textContent = off ? 'Your GetMeFunds expert is being assigned and will call you in the next few minutes.' : `Our experts are offline right now. You'll get the first call after ${fmtHour(CONFIG.OFFICE.start)}.`;
-  finish();
+  finish(off ? 'Our agent will call you now' : 'You are first in the call queue',
+         off ? 'As per your choice, our agent will call you in the next few minutes.' : `As per your choice, our agent will call you first thing after ${fmtHour(CONFIG.OFFICE.start)}.`);
 });
 $('#callLater').addEventListener('click', () => { buildSlots(); view('slots'); });
 $('#slotBack').addEventListener('click', () => $('#callNow').click());
@@ -1041,19 +1233,40 @@ function buildSlots(){
     const dl = dayLabel(d);
     if (dl !== lastDay){ lastDay = dl; const h = document.createElement('div'); h.className='slot-day'; h.textContent = dl; wrap.appendChild(h); grid = document.createElement('div'); grid.className='slots'; wrap.appendChild(grid); }
     const b = document.createElement('button'); b.type='button'; b.className = 'slot' + (i===0?' soon':''); b.textContent = rng(d);
-    b.addEventListener('click', () => { $$('.slot').forEach(x=>x.classList.remove('sel')); b.classList.add('sel'); sel = { label: dl + ', ' + rng(d), at: ymdh(d) }; $('#confirmSlot').disabled = false; });
+    b.addEventListener('click', () => { $$('.slot').forEach(x=>x.classList.remove('sel')); b.classList.add('sel'); sel = { label: dl + ', ' + rng(d), at: ymdh(d) }; $('#confirmSlot').disabled = false; if (isTouch) $('#confirmSlot').scrollIntoView({ block:'nearest', behavior:'smooth' }); });
     grid.appendChild(b);
   });
   $('#confirmSlot').onclick = () => {
     if (!sel) return;
     sync(8, { callPreference:'CALLBACK', callbackSlot: sel.label, callbackTime: sel.at }, 'callback_booked');
     fbq_('Schedule');
-    $('#doneTitle').textContent = 'Call-back booked!';
-    $('#doneSub').textContent = `Your GetMeFunds expert will call you ${sel.label.replace(',', ' between')}.`;
-    finish();
+    finish('Call-back booked: ' + sel.label, `Our agent will call you ${sel.label.replace(',', ' between')}, as per your chosen calling appointment.`);
   };
 }
-function finish(){ $('#refId').textContent = lead.id; view('done'); lead.submitted = true; saveLocal(); store.set('gmf_pl_lead', null); }
+function finish(callTitle, callText){
+  const D = lead.data;
+  $('#refId').textContent = lead.id;
+  $('#doneName').textContent = (D.name||'').split(' ')[0] || 'there';
+  $('#doneMobile').textContent = D.mobile ? '+91 ' + D.mobile.slice(0,5) + ' ' + D.mobile.slice(5) : 'your number';
+  $('#doneCallTitle').textContent = callTitle; $('#doneCallText').textContent = callText;
+  view('done'); confetti();
+  lead.submitted = true; saveLocal(); store.set('gmf_pl_lead', null);
+}
+function confetti(){
+  if (matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  const box = document.createElement('div'); box.className = 'confetti';
+  const colors = ['#1F5EFF','#FF7A00','#FFB547','#0EA56B','#7A4DFF','#FF5E8A'];
+  for (let i = 0; i < 90; i++){
+    const c = document.createElement('i');
+    c.style.left = Math.random()*100 + 'vw'; c.style.background = colors[i % colors.length];
+    c.style.setProperty('--dx', (Math.random()*160 - 80) + 'px'); c.style.setProperty('--rot', (Math.random()*900 - 450) + 'deg');
+    c.style.animationDuration = (2.2 + Math.random()*1.8) + 's'; c.style.animationDelay = (Math.random()*0.6) + 's';
+    if (i % 3 === 0){ c.style.width = '7px'; c.style.height = '7px'; c.style.borderRadius = '50%'; }
+    box.appendChild(c);
+  }
+  document.body.appendChild(box); setTimeout(() => box.remove(), 4800);
+  try { if (navigator.vibrate) navigator.vibrate([30, 40, 30]); } catch(e){}
+}
 $('#doneClose').addEventListener('click', () => { $('#overlay').classList.remove('open'); document.body.style.overflow=''; });
 
 /* ---------- EMI calculator section ---------- */
@@ -1277,10 +1490,12 @@ body.mode-docs .sticky-cta, body.mode-crm .sticky-cta{display:none}
         <div class="m-badge sf"><svg><use href="#i-doc"/></svg></div>
         <h3>Hi <span id="dsName">there</span>, upload your documents</h3>
         <p class="sub">They go straight into your loan file (Ref <b id="dsRef"></b>). Photos or PDFs, up to 10 MB each. Each file saves the moment it's uploaded.</p>
-        <div class="ds-tips"><b>📸 Tips for a quick approval</b>Place the card on a dark surface, keep all 4 corners in frame, and avoid glare. Upload the front and back of Aadhaar in one photo or one PDF.</div>
+        <div class="ds-tips"><b>📸 Tips for a quick approval</b>Place the card on a dark surface, keep all 4 corners in frame, and avoid glare. Upload the front and back of Aadhaar in one photo or one PDF. Except PAN, every block accepts several files at once (e.g. Aadhaar front + back, each salary slip).</div>
         <div id="dsList"></div>
-        <button class="btn btn-primary" id="dsSubmit" style="margin-top:8px" disabled>Submit documents <svg><use href="#i-arrow"/></svg></button>
-        <p class="hint" id="dsHint" style="text-align:center;margin-top:8px"></p>
+        <div class="ds-actions">
+          <button class="btn btn-primary" id="dsSubmit" disabled>Submit documents <svg><use href="#i-arrow"/></svg></button>
+          <p class="hint" id="dsHint"></p>
+        </div>
       </div>
       <div id="dsDone" class="ds-center" hidden>
         <div class="m-badge ok"><svg><use href="#i-checkc"/></svg></div>
@@ -1300,6 +1515,105 @@ body.mode-docs .sticky-cta, body.mode-crm .sticky-cta{display:none}
 <!-- =====================================================================
      CRM  (footer "CRM" button, or open the page with #crm)
      ===================================================================== -->
+<style>
+/* ===== Compact CRM (v4): more leads per screen, minimal scrolling ===== */
+#crm .crm-top{height:52px;padding:0 14px}
+#crm .crm-main{padding:12px 14px 40px;max-width:1440px}
+#crm .crm-h{margin-bottom:8px}
+#crm .crm-h h2{font-size:19px}
+#crm .crm-h p{font-size:12px}
+#crm .kpis{gap:8px;margin-bottom:8px}
+#crm .kpi{padding:8px 12px;border-radius:12px}
+#crm .kpi small{font-size:10.5px}
+#crm .kpi b{font-size:19px;margin-top:1px;line-height:1.2}
+#crm .kpi span{font-size:11px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#crm .kpi .bar{height:4px;margin-top:4px}
+#crm .pipe{gap:6px;margin-bottom:8px;padding-bottom:4px}
+#crm .pchip{padding:5px 9px;font-size:12px;border-radius:9px;gap:6px}
+#crm .pchip i{min-width:18px;height:18px;font-size:10.5px}
+#crm .toolbar{padding:6px;gap:6px;margin-bottom:8px;border-radius:12px}
+#crm .toolbar .search input{padding:7px 0;font-size:13.5px}
+#crm .seg button{padding:5px 9px;font-size:12px}
+#crm .sel-sm,#crm .btn-sm2{padding:6px 10px;font-size:12.5px;border-radius:9px}
+#crm .leads{border-radius:12px}
+#crm .lr{padding:6px 12px;gap:10px;font-size:12.5px;line-height:1.35}
+#crm .lr.head{padding:7px 12px;font-size:10.5px}
+#crm .lr .nm b{font-size:13px;display:inline}
+#crm .lr .nm small{display:block;font-size:11px}
+#crm .lr .muted{font-size:11px}
+#crm .pill-s{padding:2px 8px;font-size:11px}
+#crm .badge-now,#crm .badge-cb{font-size:10.5px;padding:2px 7px}
+/* detail */
+#crm .dt-head{padding:10px 14px;border-radius:14px;margin-bottom:8px}
+#crm .dt-top{gap:10px;align-items:center}
+#crm .back-btn{width:34px;height:34px;border-radius:10px}
+#crm .dt-title h2{font-size:19px;margin:0}
+#crm .dt-title p{font-size:11.5px}
+#crm .dt-acts .btn-sm2{padding:6px 10px}
+.up-bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:8px;padding:6px 8px;background:var(--sky-2);border:1px solid var(--line);border-radius:10px;font-size:12px}
+.up-bar .lbl2{font-weight:800;color:var(--ink-2);white-space:nowrap;display:flex;align-items:center;gap:5px}
+.up-bar .lbl2 svg{width:14px;height:14px;color:var(--leaf)}
+.up-bar code{flex:1 1 220px;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:11.5px;background:#fff;border:1px solid var(--line);border-radius:7px;padding:4px 8px}
+.up-bar .btn-sm2{padding:4px 9px;font-size:12px}
+.up-bar .meta{color:var(--ink-soft);font-size:11px;white-space:nowrap}
+#crm .stepper{margin-top:8px}
+#crm .stp{flex:1 0 74px;font-size:10.5px;padding-top:20px}
+#crm .stp:before{top:7px;height:2px}
+#crm .stp i{top:0;width:16px;height:16px;border-width:2px;font-size:9px}
+#crm .lost-banner{margin-top:6px;padding:5px 10px;font-size:12px}
+.strip{display:flex;background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:8px;overflow-x:auto;scrollbar-width:thin}
+.strip .sc{flex:1 0 auto;padding:6px 12px;border-left:1px solid var(--line);min-width:96px;max-width:240px}
+.strip .sc:first-child{border-left:0}
+.strip .sc small{display:block;font-size:10px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap}
+.strip .sc b{display:block;font-size:12.5px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.strip .sc.ttl{display:flex;align-items:center;gap:6px;background:var(--sky-2);font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--blue);min-width:auto;border-radius:12px 0 0 12px}
+.strip .sc.ttl svg{width:14px;height:14px}
+#crm .dt-grid{gap:8px}
+#crm .card{padding:10px 12px;border-radius:12px}
+#crm .card h4{font-size:10.5px;margin-bottom:8px}
+#crm .kv{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px 12px}
+#crm .kv div small{font-size:10.5px;margin-bottom:0}
+#crm .kv div b{font-size:13px}
+#crm .kv .w2{grid-column:span 2}
+#crm .kv .flag b{color:var(--saffron-d)}
+#crm .doc-grid{gap:6px;margin-bottom:0}
+#crm .dtile{padding:7px 6px;font-size:11.5px;border-radius:10px;display:flex;flex-direction:column;align-items:center;gap:1px}
+#crm .dtile svg{width:16px;height:16px;margin:0 0 2px}
+#crm .dtile .files{display:flex;flex-wrap:wrap;justify-content:center;gap:2px 6px}
+#crm .dtile a{display:inline;margin:0;font-size:11px}
+#crm .dtile small{font-size:10.5px;margin:0}
+.doc-note{font-size:11px;color:var(--ink-soft);margin-top:6px}
+#crm .form-g{gap:7px}
+#crm .form-g label{font-size:11px;margin-bottom:2px}
+#crm .form-g input,#crm .form-g select{padding:6px 8px;font-size:12.5px;border-radius:8px}
+#crm .form-g textarea{min-height:52px;padding:6px 8px;font-size:12.5px;border-radius:8px}
+#crm .three{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:6px}
+#crm .two{gap:6px}
+#crm #dSave{padding:9px;min-height:0;font-size:14px;border-radius:10px}
+#crm .form-g .hint{font-size:11px;margin:0}
+#crm .tl{max-height:300px;overflow:auto;padding-right:4px}
+#crm .tl li{padding:0 0 8px 18px;font-size:12px;line-height:1.35}
+#crm .tl li:after{width:10px;height:10px;border-width:2px;top:3px}
+#crm .tl li:before{left:4px}
+#crm .tl small{font-size:10.5px}
+@media (min-width:1100px){#crm .dt-grid{grid-template-columns:minmax(0,2fr) minmax(300px,1fr)}#crm .dt-side{top:60px}}
+@media (max-width:980px){#crm .kv{grid-template-columns:repeat(2,minmax(0,1fr))}#crm .three{grid-template-columns:1fr 1fr}#crm .lr{padding:10px 12px}}
+@media (min-width:1100px){#crm .kpis{grid-template-columns:repeat(6,1fr)}}
+@media (max-width:700px){
+  #crm .dt-top{flex-wrap:wrap}
+  #crm .dt-title{flex:1 1 calc(100% - 48px)}
+  #crm .dt-acts{flex:1 1 100%}
+  #crm .dt-acts .btn-sm2{flex:1;justify-content:center}
+  #crm .kpis{grid-template-columns:repeat(3,1fr);gap:6px}
+  #crm .kpi{padding:7px 9px}
+  #crm .kpi b{font-size:16px}
+  #crm .kpi span{display:none}
+  #crm .lr{grid-template-columns:1fr 1fr 1fr;gap:4px 10px;padding:9px 12px}
+  #crm .lr .lbl{font-size:9.5px}
+  #crm .toolbar .seg,#crm .toolbar .sel-sm{flex:1 1 auto}
+  .up-bar code{flex-basis:100%}
+}
+</style>
 <div id="crm" class="app-screen">
   <div id="crmLogin" class="crm-login">
     <form class="cl-card" id="lgForm" autocomplete="on">
@@ -1366,9 +1680,21 @@ body.mode-docs .sticky-cta, body.mode-crm .sticky-cta{display:none}
 /* =====================================================================
    SHARED: lead columns (same order as Code.gs) + demo backend for previews
    ===================================================================== */
-const LEAD_COLS = ['Lead ID','Created At','Updated At','Form Stage','Last Step','Lead Status','Call Preference','Callback Slot','Callback Time','Captured In Office Hours','Full Name (as per PAN)','Mobile','PAN','Date of Birth','Age','Employment Type','Employer / Company Name','Monthly Net Income','Salary Mode','Salary / Savings Bank','Pincode','City','State','Loan Amount Required','Current Total EMIs','Knows Credit Score','Credit Score (CIBIL)','FOIR %','Indicative Eligible Amount','Eligibility Flags','Repeat Lead','UTM Source','UTM Medium','UTM Campaign','UTM Content','UTM Term','FBCLID','Visitor ID','Device','In-App Browser','Referrer','Landing URL','PAN Copy','Aadhaar Copy','Salary Slip','Docs Uploaded','Doc Link Token','Doc Link Shared At','Assigned Agent','Agent Remarks','Next Follow-up','Sanctioned Amount','Disbursed Amount','Disbursal Date','Rejection Reason','Doc Folder Link'];
+const LEAD_COLS = ['Lead ID','Created At','Updated At','Form Stage','Last Step','Lead Status','Call Preference','Callback Slot','Callback Time','Captured In Office Hours','Full Name (as per PAN)','Mobile','PAN','Date of Birth','Age','Employment Type','Employer / Company Name','Monthly Net Income','Salary Mode','Salary / Savings Bank','Pincode','City','State','Loan Amount Required','Current Total EMIs','Knows Credit Score','Credit Score (CIBIL)','Indicative EMI','FOIR %','Indicative Eligible Amount','Eligibility Flags','Repeat Lead','UTM Source','UTM Medium','UTM Campaign','UTM Content','UTM Term','FBCLID','Visitor ID','Device','In-App Browser','Referrer','Landing URL','PAN Copy','Aadhaar Copy','Salary Slip','Bank Statement','Docs Required','Docs Uploaded','Doc Link Token','Doc Link Shared At','Assigned Agent','Agent Remarks','Next Follow-up','Sanctioned Amount','Disbursed Amount','Disbursal Date','Rejection Reason','Doc Folder Link'];
 const STAGES_UI = ['New','Contacted','Interested','Docs Pending','Docs Received','Login Done','Credit Review','Sanctioned','Agreement / eSign','Disbursed','Not Reachable','Not Interested','Not Eligible','Rejected','Duplicate'];
 const MAIN_PATH = STAGES_UI.slice(0,10);
+const DOC_COL_UI = { PAN:'PAN Copy', AADHAAR:'Aadhaar Copy', SALARY_SLIP:'Salary Slip', BANK_STATEMENT:'Bank Statement' };
+function docPlanUI(emp, amt){   // mirrors docPlan_() in Code.gs
+  const sal = emp !== 'Self Employed', high = +amt > 500000;
+  const plan = [{ key:'PAN', label:'PAN card', hint:'One photo or PDF', required:true, multiple:false },
+                { key:'AADHAAR', label:'Aadhaar card', hint:'Front & back: select both images, or one PDF', required:true, multiple:true }];
+  if (sal && high){ plan.push({ key:'SALARY_SLIP', label:"Last 3 months' salary slips", hint:'Select all 3 (photos or PDFs)', required:true, multiple:true }); plan.push({ key:'BANK_STATEMENT', label:"Last 6 months' bank statement", hint:'Salary account · PDF or photos of each page', required:true, multiple:true }); }
+  else if (sal) plan.push({ key:'SALARY_SLIP', label:'Latest salary slip', hint:'Photo or PDF (several images allowed)', required:true, multiple:true });
+  else if (high) plan.push({ key:'BANK_STATEMENT', label:"Last 6 months' bank statement + ITR", hint:'Main business account · add ITR if available', required:true, multiple:true });
+  else plan.push({ key:'BANK_STATEMENT', label:'Bank statement or ITR', hint:'Optional · helps faster approval', required:false, multiple:true });
+  return plan;
+}
+const docPlanText = plan => plan.map(d => d.label.replace('PAN card','PAN').replace('Aadhaar card','Aadhaar') + (d.required?'':' (optional)')).join(', ');
 const stageClass = s => ({'New':'st-new','Contacted':'st-act','Interested':'st-act','Docs Pending':'st-docp','Docs Received':'st-docr','Login Done':'st-pipe','Credit Review':'st-pipe','Sanctioned':'st-pipe','Agreement / eSign':'st-pipe','Disbursed':'st-won','Rejected':'st-rej','Not Eligible':'st-rej'}[s] || 'st-lost');
 const esc = v => String(v==null?'':v).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmtDT = ms => ms ? new Date(ms).toLocaleString('en-IN',{timeZone:'Asia/Kolkata',day:'numeric',month:'short',hour:'numeric',minute:'2-digit',hour12:true}) : '—';
@@ -1395,20 +1721,23 @@ window.demoApi = function(action, p){
     case 'upsertLead': { let l = find(p.leadId); if (!l){ l = {'Lead ID':p.leadId,'Created At':Date.now(),'Lead Status':'New','Doc Link Token':tok(),'Doc Folder Link':'https://drive.google.com/drive/folders/DEMO','Docs Uploaded':'Pending (0/3)'}; db.leads.unshift(l); }
       Object.keys(map).forEach(k => { if (p[k]!==undefined && p[k]!=='') l[map[k]] = p[k]; });
       if (p.callbackTime) l['Callback Time'] = Date.parse(p.callbackTime.replace(' ','T')+':00+05:30');
-      if (p.step > (l['Last Step']||0)) l['Last Step'] = p.step; l['Age'] = p.age || l['Age']; l['Updated At'] = Date.now(); ev(p.leadId, p.event||'step', '', 'Customer'); r = {ok:true}; break; }
+      if (p.step > (l['Last Step']||0)) l['Last Step'] = p.step; if (l['Loan Amount Required']) l['Indicative EMI'] = Math.round(emiCalc(+l['Loan Amount Required'],13,36)); l['Docs Required'] = docPlanText(docPlanUI(l['Employment Type'], l['Loan Amount Required'])); l['Age'] = p.age || l['Age']; l['Updated At'] = Date.now(); ev(p.leadId, p.event||'step', '', 'Customer'); r = {ok:true}; break; }
     case 'login': { const u = db.users.find(u => u[0].toLowerCase()===String(p.username).toLowerCase() && u[1]===p.password && u[5]!=='No');
       if (!u){ r = {ok:false,error:'Incorrect username or password'}; break; }
       const t = tok(); db.sessions[t] = {username:u[0], role:u[2], name:u[3]||u[0]}; r = {ok:true, token:t, user:db.sessions[t], meta:meta()}; break; }
     case 'logout': delete db.sessions[p.token]; r = {ok:true}; break;
     case 'listLeads': r = need() || {ok:true, headers:H, rows:toRows(), meta:meta(), serverTime:Date.now()}; break;
-    case 'getLead': { r = need(); if (r) break; const l = find(p.leadId); r = l ? {ok:true, headers:H, row:H.map(h=>l[h]===undefined?'':l[h]), events: db.events.filter(e=>e.id===p.leadId).reverse()} : {ok:false,error:'Lead not found'}; break; }
+    case 'getLead': { r = need(); if (r) break; const l = find(p.leadId); r = l ? {ok:true, headers:H, row:H.map(h=>l[h]===undefined?'':l[h]), plan:docPlanUI(l['Employment Type'], l['Loan Amount Required']), events: db.events.filter(e=>e.id===p.leadId).reverse()} : {ok:false,error:'Lead not found'}; break; }
     case 'updateLead': { r = need(); if (r) break; const l = find(p.leadId); const f = p.fields||{};
       Object.keys(f).forEach(k => { let v = f[k]; if (['Next Follow-up','Callback Time','Disbursal Date'].includes(k)) v = v ? Date.parse((v.length===10?v+'T00:00':v)+':00+05:30') : ''; if (String(l[k]||'')!==String(v)){ ev(p.leadId, k==='Lead Status'?'stage':'update', k==='Lead Status' ? (l[k]||'—')+' → '+v : k+': '+(v||'(cleared)'), user.name); l[k]=v; } });
       if (p.remark){ l['Agent Remarks'] = p.remark; ev(p.leadId,'remark',p.remark,user.name); } l['Updated At']=Date.now(); save(); return window.demoApi('getLead', p); }
     case 'shareDocLink': { r = need(); if (r) break; const l = find(p.leadId); if (!l['Doc Link Token']) l['Doc Link Token']=tok(); if (p.channel){ l['Doc Link Shared At']=Date.now(); ev(p.leadId,'doc_link_shared','via '+p.channel,user.name); if (['New','Contacted','Interested'].includes(l['Lead Status'])) l['Lead Status']='Docs Pending'; } r = {ok:true, token:l['Doc Link Token'], folderUrl:l['Doc Folder Link'], status:l['Lead Status']}; break; }
-    case 'docsInfo': { const l = db.leads.find(l => l['Doc Link Token']===p.token); r = l ? {ok:true, firstName:String(l['Full Name (as per PAN)']||'').split(' ')[0], leadId:l['Lead ID'], employmentType:l['Employment Type']||'Salaried', salaryRequired:l['Employment Type']!=='Self Employed', docs:{PAN:!!l['PAN Copy'],AADHAAR:!!l['Aadhaar Copy'],SALARY_SLIP:!!l['Salary Slip']}} : {ok:false,error:'This link is invalid or has expired.'}; break; }
-    case 'uploadDoc': { const l = db.leads.find(l => l['Doc Link Token']===p.token); if (!l){ r={ok:false,error:'Invalid link'}; break; } const col = {PAN:'PAN Copy',AADHAAR:'Aadhaar Copy',SALARY_SLIP:'Salary Slip'}[p.docType]; l[col]='https://drive.google.com/file/d/DEMO-'+p.docType;
-      const req = l['Employment Type']==='Self Employed' ? ['PAN Copy','Aadhaar Copy'] : ['PAN Copy','Aadhaar Copy','Salary Slip']; const n = req.filter(c=>l[c]).length; l['Docs Uploaded'] = (n===req.length?'Complete':'Partial')+` (${n}/${req.length})`;
+    case 'docsInfo': { const l = db.leads.find(l => l['Doc Link Token']===p.token); if (!l){ r = {ok:false,error:'This link is invalid or has expired.'}; break; }
+      const docs = {}; Object.keys(DOC_COL_UI).forEach(k => docs[k] = String(l[DOC_COL_UI[k]]||'').split('\n').filter(String).length);
+      r = {ok:true, firstName:String(l['Full Name (as per PAN)']||'').split(' ')[0], leadId:l['Lead ID'], employmentType:l['Employment Type']||'Salaried', plan:docPlanUI(l['Employment Type'], l['Loan Amount Required']), docs}; break; }
+    case 'uploadDoc': { const l = db.leads.find(l => l['Doc Link Token']===p.token); if (!l){ r={ok:false,error:'Invalid link'}; break; } const col = DOC_COL_UI[p.docType];
+      const url = 'https://drive.google.com/file/d/DEMO-'+p.docType+'-'+Date.now(); l[col] = (['AADHAAR','SALARY_SLIP','BANK_STATEMENT'].includes(p.docType) && l[col]) ? l[col]+'\n'+url : url;
+      const req = docPlanUI(l['Employment Type'], l['Loan Amount Required']).filter(d=>d.required).map(d=>DOC_COL_UI[d.key]); const n = req.filter(c=>l[c]).length; l['Docs Uploaded'] = (n===req.length?'Complete':'Partial')+` (${n}/${req.length})`;
       if (n===req.length && ['New','Contacted','Interested','Docs Pending'].includes(l['Lead Status'])){ ev(l['Lead ID'],'stage',l['Lead Status']+' → Docs Received (auto)','System'); l['Lead Status']='Docs Received'; }
       ev(l['Lead ID'],'doc_uploaded',p.docType,'Customer'); r = {ok:true}; break; }
     case 'listUsers': r = need('Admin') || {ok:true, headers:['Username','Password','Role','Full Name','Mobile','Active','Created At','Last Login'], rows:db.users}; break;
@@ -1437,10 +1766,10 @@ function seedDemo(){
 /* =====================================================================
    CUSTOMER DOCUMENT PAGE
    ===================================================================== */
-const DOC_DEF = [
-  { key:'PAN', label:'PAN card', hint:'Photo or PDF' },
-  { key:'AADHAAR', label:'Aadhaar card', hint:'Front & back in one photo or PDF' },
-  { key:'SALARY_SLIP', label:'Latest salary slip', hint:'Photo or PDF' }
+const DOC_DEF = [   // fallback only; the backend sends the plan per lead
+  { key:'PAN', label:'PAN card', hint:'Photo or PDF', required:true, multiple:false },
+  { key:'AADHAAR', label:'Aadhaar card', hint:'Front & back: select both images, or one PDF', required:true, multiple:true },
+  { key:'SALARY_SLIP', label:'Latest salary slip', hint:'Photo or PDF', required:true, multiple:true }
 ];
 async function startDocs(token){
   document.body.classList.add('mode-docs');
@@ -1449,35 +1778,42 @@ async function startDocs(token){
   try { info = await api('docsInfo', { token }); } catch(e){ info = { ok:false, error:'Could not connect. Please check your internet and reload this page.' }; }
   if (!info || !info.ok){ $('#dsErrMsg').textContent = (info && info.error) || 'This link is invalid.'; show('dsErr'); return; }
   $('#dsName').textContent = info.firstName || 'there'; $('#dsRef').textContent = info.leadId || '';
-  const state = { ...info.docs };
-  const required = k => k==='SALARY_SLIP' ? info.salaryRequired : true;
+  const state = {}; Object.keys(info.docs || {}).forEach(k => state[k] = +info.docs[k] || 0);
+  const PLAN = (info.plan && info.plan.length) ? info.plan : DOC_DEF;
+  const required = k => (PLAN.find(d => d.key===k) || {}).required;
   const list = $('#dsList'); list.innerHTML = '';
-  DOC_DEF.forEach(d => {
-    const label = d.key==='SALARY_SLIP' && !info.salaryRequired ? 'Bank statement or ITR' : d.label;
+  PLAN.forEach(d => {
+    const label = d.label;
+    const doneTxt = n => n > 1 ? `${n} files uploaded · tap to add more` : (d.multiple ? 'Uploaded · tap to add more' : 'Uploaded · tap to replace');
     const tile = document.createElement('label'); tile.className = 'upl' + (state[d.key] ? ' done' : ''); tile.dataset.doc = d.key;
-    tile.innerHTML = `<input type="file" accept="image/*,application/pdf"><span class="ui"><svg><use href="#${state[d.key]?'i-checkc':'i-doc'}"/></svg></span><span class="ut"><b>${label}<span class="tag ${required(d.key)?'req':'opt'}">${required(d.key)?'Required':'Optional'}</span></b><span>${state[d.key] ? 'Uploaded · tap to replace' : d.hint}</span></span><span class="us">${state[d.key] ? '✓ Done' : 'Upload'}</span>`;
+    tile.innerHTML = `<input type="file" accept="image/*,application/pdf" ${d.multiple?'multiple':''}><span class="ui"><svg><use href="#${state[d.key]?'i-checkc':'i-doc'}"/></svg></span><span class="ut"><b>${esc(label)}<span class="tag ${d.required?'req':'opt'}">${d.required?'Required':'Optional'}</span></b><span>${state[d.key] ? doneTxt(state[d.key]) : esc(d.hint)}</span></span><span class="us">${state[d.key] ? '✓ Done' : 'Upload'}</span>`;
     list.appendChild(tile);
     const input = tile.querySelector('input');
     input.addEventListener('change', async () => {
-      const f = input.files[0]; if (!f) return;
-      if (!/^image\/|application\/pdf/.test(f.type)){ toast('Please upload a photo or PDF'); return; }
-      if (f.type==='application/pdf' && f.size > CONFIG.MAX_UPLOAD_MB*1048576){ toast(`PDF must be under ${CONFIG.MAX_UPLOAD_MB} MB`); return; }
-      tile.className = 'upl busy'; tile.querySelector('.us').textContent = 'Uploading…'; tile.querySelector('.ut > span').textContent = f.name;
-      try {
-        const blob = /^image\//.test(f.type) ? await compressImage(f) : f;
-        const b64 = await new Promise((res, rej) => { const fr = new FileReader(); fr.onload = () => res(String(fr.result).split(',')[1]); fr.onerror = rej; fr.readAsDataURL(blob); });
-        const r = await api('uploadDoc', { token, docType: d.key, mimeType: blob.type || 'image/jpeg', fileName: d.key, data: b64 });
-        if (!r || !r.ok) throw new Error(r && r.error || 'Upload failed');
-        state[d.key] = true; tile.className = 'upl done'; tile.querySelector('.us').textContent = '✓ Done';
-        tile.querySelector('.ui').innerHTML = '<svg><use href="#i-checkc"/></svg>'; tile.querySelector('.ut > span').textContent = 'Uploaded · tap to replace';
-      } catch(e){ tile.className = 'upl fail'; tile.querySelector('.us').textContent = 'Retry'; toast(e.message || 'Upload failed. Please try again.'); }
+      const files = [...input.files]; if (!files.length) return;
+      for (const f of files){
+        if (!/^image\/|application\/pdf/.test(f.type)){ toast('Please upload photos or PDFs'); continue; }
+        if (f.type==='application/pdf' && f.size > CONFIG.MAX_UPLOAD_MB*1048576){ toast(`PDF must be under ${CONFIG.MAX_UPLOAD_MB} MB`); continue; }
+        tile.className = 'upl busy'; tile.querySelector('.us').textContent = files.length > 1 ? `Uploading ${files.indexOf(f)+1}/${files.length}…` : 'Uploading…'; tile.querySelector('.ut > span').textContent = f.name;
+        refresh();
+        try {
+          const blob = /^image\//.test(f.type) ? await compressImage(f) : f;
+          const b64 = await new Promise((res, rej) => { const fr = new FileReader(); fr.onload = () => res(String(fr.result).split(',')[1]); fr.onerror = rej; fr.readAsDataURL(blob); });
+          const r = await api('uploadDoc', { token, docType: d.key, mimeType: blob.type || 'image/jpeg', fileName: d.key, data: b64 });
+          if (!r || !r.ok) throw new Error(r && r.error || 'Upload failed');
+          state[d.key] = d.multiple ? (state[d.key]||0) + 1 : 1;
+        } catch(e){ toast(e.message || 'Upload failed. Please try again.'); }
+      }
+      if (state[d.key]){ tile.className = 'upl done'; tile.querySelector('.us').textContent = '✓ Done'; tile.querySelector('.ui').innerHTML = '<svg><use href="#i-checkc"/></svg>'; tile.querySelector('.ut > span').textContent = doneTxt(state[d.key]); }
+      else { tile.className = 'upl fail'; tile.querySelector('.us').textContent = 'Retry'; }
       input.value = ''; refresh();
     });
   });
   function refresh(){
-    const missing = DOC_DEF.filter(d => required(d.key) && !state[d.key]);
+    const missing = PLAN.filter(d => d.required && !state[d.key]);
     $('#dsSubmit').disabled = missing.length > 0 || !!$('.upl.busy');
-    $('#dsHint').textContent = missing.length ? `Still needed: ${missing.map(d => d.key==='PAN'?'PAN':d.key==='AADHAAR'?'Aadhaar':'Salary slip').join(', ')}` : 'All required documents uploaded ✓';
+    const short = {PAN:'PAN', AADHAAR:'Aadhaar', SALARY_SLIP:'Salary slip', BANK_STATEMENT:'Bank statement'};
+    $('#dsHint').textContent = missing.length ? `Still needed: ${missing.map(d => short[d.key]).join(', ')}` : 'All required documents uploaded ✓';
   }
   $('#dsSubmit').onclick = () => show('dsDone');
   refresh(); show('dsMain');
@@ -1627,88 +1963,94 @@ async function openLead(id){
     const r = await crmApi('getLead', { leadId:id });
     const l = {}; r.headers.forEach((h,i) => l[h] = r.row[i]);
     if (!l['Doc Link Token']){ const s = await crmApi('shareDocLink', { leadId:id }); l['Doc Link Token'] = s.token; l['Doc Folder Link'] = s.folderUrl || l['Doc Folder Link']; }
-    renderDetail(l, r.events || []);
+    renderDetail(l, r.events || [], r.plan);
   } catch(e){ $('#vDetail').innerHTML = `<div class="empty"><b>Couldn't open this lead</b>${esc(e.message)}<br><br><button class="btn-sm2" onclick="showView('vList')">← Back to leads</button></div>`; }
 }
-function renderDetail(l, events){
+function renderDetail(l, events, plan){
+  plan = plan || docPlanUI(L(l,'Employment Type'), L(l,'Loan Amount Required'));
   const st = L(l,'Lead Status')||'New', idx = MAIN_PATH.indexOf(st), mobile = String(L(l,'Mobile'));
   const first = String(L(l,'Full Name (as per PAN)')).split(' ')[0] || 'there';
   const link = docLink(L(l,'Doc Link Token'));
-  const msg = `Hi ${first}, this is GetMeFunds regarding your personal loan application (Ref ${L(l,'Lead ID')}). Please upload your PAN, Aadhaar${L(l,'Employment Type')!=='Self Employed'?' and latest salary slip':''} securely here: ${link}`;
-  const kv = (label, val, full) => `<div class="${full?'full':''}"><small>${label}</small><b>${val===''||val==null?'—':val}</b></div>`;
+  const docNames = plan.filter(d => d.required).map(d => d.label.replace('PAN card','PAN').replace('Aadhaar card','Aadhaar'));
+  const docList = docNames.length > 1 ? docNames.slice(0,-1).join(', ') + ' and ' + docNames.slice(-1) : docNames.join('');
+  const msg = `Hi ${first}, this is GetMeFunds regarding your personal loan application (Ref ${L(l,'Lead ID')}). Please upload your ${docList} securely here: ${link}`;
+  const kv = (label, val, cls) => `<div class="${cls||''}"><small>${label}</small><b>${val===''||val==null?'—':val}</b></div>`;
   const sc = +L(l,'Credit Score (CIBIL)');
-  const docT = (key, col, label) => { const u = L(l,col); const req = key!=='SALARY_SLIP' || L(l,'Employment Type')!=='Self Employed';
-    return `<div class="dtile ${u?'ok':''}"><svg><use href="#${u?'i-checkc':'i-doc'}"/></svg>${label}${u ? `<a href="${esc(u)}" target="_blank" rel="noopener">View file ↗</a>` : `<small>${req?'Pending':'Optional'}</small>`}</div>`; };
+  const cibil = sc ? `<span class="cib ${sc>=700?'g':sc>=650?'f':'b'}">${sc}</span>` : esc(L(l,'Knows Credit Score')==='No'?'Not sure':L(l,'Knows Credit Score')==='New to Credit'?'New to credit':L(l,'Knows Credit Score')||'');
+  const docT = d => { const urls = String(L(l, DOC_COL_UI[d.key])||'').split('\n').filter(String);
+    return `<div class="dtile ${urls.length?'ok':''}"><svg><use href="#${urls.length?'i-checkc':'i-doc'}"/></svg><span>${esc(d.label)}</span>${urls.length ? `<span class="files">${urls.map((u,i) => `<a href="${esc(u)}" target="_blank" rel="noopener">${urls.length>1?'File '+(i+1):'View'} ↗</a>`).join('')}</span>` : `<small>${d.required?'Pending':'Optional'}</small>`}</div>`; };
+  const docName = k => ({PAN:'PAN card',AADHAAR:'Aadhaar',SALARY_SLIP:'salary slip',BANK_STATEMENT:'bank statement'})[k]||k;
   const evIcon = e => e.event==='remark'?'r':e.event==='stage'?'s':(e.by==='Customer'?'c':'');
-  const evText = e => ({lead_created:'Lead created (name + mobile)',form_submitted:'Submitted the application form',call_now:'Chose <b>Call me now</b>',callback_booked:'Booked a call-back',doc_uploaded:'Uploaded <b>'+esc(e.detail)+'</b>',doc_link_shared:'Shared document link '+esc(e.detail),page_hidden:'Left the page mid-form'}[e.event] || (e.event==='stage' ? 'Stage: <b>'+esc(e.detail)+'</b>' : e.event==='remark' ? '💬 '+esc(e.detail) : e.event==='update' ? esc(e.detail) : /^step_/.test(e.event) ? 'Completed form '+esc(e.event.replace('step_','step ')) : esc(e.event)));
+  const evText = e => ({lead_created:'Lead created',form_submitted:'Submitted the form',call_now:'Chose <b>Call me now</b>',callback_booked:'Booked a call-back',doc_uploaded:'Uploaded <b>'+esc(docName(e.detail))+'</b>',doc_link_shared:'Doc link shared '+esc(e.detail),page_hidden:'Left mid-form'}[e.event] || (e.event==='stage' ? 'Stage: <b>'+esc(e.detail)+'</b>' : e.event==='remark' ? '💬 '+esc(e.detail) : e.event==='update' ? esc(e.detail) : /^step_/.test(e.event) ? 'Form '+esc(e.event.replace('step_','step ')) : esc(e.event)));
   const agents = (CRM.meta && CRM.meta.agents) || [];
-  const isLost = idx === -1;
+  const isLost = idx === -1, pref = L(l,'Call Preference');
+  const cell = (label, val) => `<div class="sc"><small>${label}</small><b title="${esc(String(val||'').replace(/<[^>]+>/g,''))}">${val===''||val==null?'—':val}</b></div>`;
+  const high = +L(l,'Loan Amount Required') > 500000;
   $('#vDetail').innerHTML = `
   <div class="dt-head">
     <div class="dt-top">
       <button class="back-btn" type="button" id="dBack" aria-label="Back"><svg><use href="#i-back"/></svg></button>
-      <div class="dt-title"><h2>${esc(L(l,'Full Name (as per PAN)')||'—')} <span class="pill-s ${stageClass(st)}" style="vertical-align:middle;font-family:var(--sans)">${esc(st)}</span></h2>
-        <p>${esc(L(l,'Lead ID'))} · created ${fmtDT(+L(l,'Created At'))} · ${esc(L(l,'Form Stage')||'')}${L(l,'Repeat Lead')?' · <b style="color:var(--saffron-d)">Repeat lead</b>':''}</p></div>
+      <div class="dt-title" style="min-width:0"><h2>${esc(L(l,'Full Name (as per PAN)')||'—')} <span class="pill-s ${stageClass(st)}" style="vertical-align:middle;font-family:var(--sans)">${esc(st)}</span>${pref==='CALL NOW'?' <span class="badge-now" style="vertical-align:middle;font-family:var(--sans)">🔥 Call now</span>':''}</h2>
+        <p>${esc(L(l,'Lead ID'))} · created ${fmtDT(+L(l,'Created At'))} · updated ${fmtDT(+L(l,'Updated At'))} · ${esc(L(l,'Form Stage')||'')}${L(l,'Assigned Agent')?' · 👤 '+esc(L(l,'Assigned Agent')):''}</p></div>
       <div class="dt-acts">
-        <a class="btn-sm2 pri" href="tel:+91${esc(mobile)}"><svg><use href="#i-phone"/></svg>Call ${esc(mobile)}</a>
+        <a class="btn-sm2 pri" href="tel:+91${esc(mobile)}"><svg><use href="#i-phone"/></svg>${esc(mobile)}</a>
         <a class="btn-sm2 wa" href="https://wa.me/91${esc(mobile)}" target="_blank" rel="noopener">WhatsApp</a>
       </div>
+    </div>
+    <div class="up-bar">
+      <span class="lbl2"><svg><use href="#i-lock"/></svg>Customer upload link</span>
+      <code id="dLink">${esc(link)}</code>
+      <a class="btn-sm2 wa" id="shWa" href="https://wa.me/91${esc(mobile)}?text=${encodeURIComponent(msg)}" target="_blank" rel="noopener">Send on WhatsApp</a>
+      <a class="btn-sm2" id="shSms" href="sms:+91${esc(mobile)}?body=${encodeURIComponent(msg)}">SMS</a>
+      <button class="btn-sm2" id="shCopy" type="button">Copy</button>
+      ${L(l,'Doc Folder Link') ? `<a class="btn-sm2" href="${esc(L(l,'Doc Folder Link'))}" target="_blank" rel="noopener">Drive folder ↗</a>` : ''}
+      <span class="meta">${L(l,'Doc Link Shared At')?'Last shared '+fmtDT(+L(l,'Doc Link Shared At')):'Not shared yet'} · Docs: <b>${esc(L(l,'Docs Uploaded')||'Pending')}</b></span>
     </div>
     <div class="stepper">${MAIN_PATH.map((s,i) => `<div class="stp ${!isLost && i<idx?'done':''} ${i===idx?'cur':''}" data-s="${esc(s)}"><i>${!isLost && i<idx?'✓':''}</i>${esc(s)}</div>`).join('')}</div>
     ${isLost ? `<div class="lost-banner">Closed as <span class="pill-s ${stageClass(st)}">${esc(st)}</span> ${L(l,'Rejection Reason')?'· '+esc(L(l,'Rejection Reason')):''}</div>` : ''}
   </div>
+  <div class="strip">
+    <div class="sc ttl"><svg><use href="#i-clock"/></svg>Call &amp; source</div>
+    ${cell('Call preference', pref==='CALL NOW'?'<span class="badge-now">🔥 Call now</span>':pref==='CALLBACK'?'<span class="badge-cb">⏰ Callback</span>':'')}
+    ${cell('Callback slot', esc(L(l,'Callback Slot')))}
+    ${cell('Office hours', esc(L(l,'Captured In Office Hours')))}
+    ${cell('Source / medium', esc([L(l,'UTM Source'),L(l,'UTM Medium')].filter(Boolean).join(' / ')))}
+    ${cell('Campaign', esc(L(l,'UTM Campaign')))}
+    ${cell('Ad', esc(L(l,'UTM Content')))}
+    ${cell('Ad set', esc(L(l,'UTM Term')))}
+    ${cell('Device', esc([L(l,'Device'),L(l,'In-App Browser')].filter(Boolean).join(' · ')))}
+    ${cell('Repeat lead', esc(L(l,'Repeat Lead')||'No'))}
+  </div>
   <div class="dt-grid">
-    <div style="display:grid;gap:14px">
-      <div class="card"><h4><svg><use href="#i-wallet"/></svg>Loan requirement</h4><div class="kv">
-        ${kv('Loan amount needed', rupee(L(l,'Loan Amount Required')))}${kv('Indicative eligible', rupee(L(l,'Indicative Eligible Amount')))}
-        ${kv('Current EMIs / month', rupee(L(l,'Current Total EMIs')))}${kv('FOIR', L(l,'FOIR %')!==''?L(l,'FOIR %')+'%':'')}
-        ${kv('Eligibility flags', esc(L(l,'Eligibility Flags')), true)}</div></div>
-      <div class="card"><h4><svg><use href="#i-brief"/></svg>Applicant &amp; income</h4><div class="kv">
-        ${kv('Full name (as per PAN)', esc(L(l,'Full Name (as per PAN)')))}${kv('Mobile', esc(mobile))}
-        ${kv('PAN', esc(L(l,'PAN')))}${kv('Date of birth', esc(L(l,'Date of Birth')) + (L(l,'Age')?` <span class="muted">(${L(l,'Age')} yrs)</span>`:''))}
-        ${kv('Employment type', esc(L(l,'Employment Type')))}${kv(L(l,'Employment Type')==='Self Employed'?'Company / business':'Employer', esc(L(l,'Employer / Company Name')))}
-        ${kv('Monthly net income', rupee(L(l,'Monthly Net Income')))}${kv('Salary / income mode', esc(L(l,'Salary Mode')))}
-        ${kv('Salary / savings bank', esc(L(l,'Salary / Savings Bank')))}${kv('Credit score (CIBIL)', sc ? `<span class="cib ${sc>=700?'g':sc>=650?'f':'b'}">${sc}</span>` : esc(L(l,'Knows Credit Score')==='No'?'Customer not sure':L(l,'Knows Credit Score')==='New to Credit'?'New to credit':L(l,'Knows Credit Score')||''))}
-        ${kv('Residence', esc([L(l,'City'),L(l,'State'),L(l,'Pincode')].filter(Boolean).join(', ')), true)}</div></div>
-      <div class="card"><h4><svg><use href="#i-doc"/></svg>Documents</h4>
-        <div class="doc-grid">${docT('PAN','PAN Copy','PAN card')}${docT('AADHAAR','Aadhaar Copy','Aadhaar')}${docT('SALARY_SLIP','Salary Slip',L(l,'Employment Type')==='Self Employed'?'Income proof':'Salary slip')}</div>
-        <div class="share-box">
-          <b style="font-size:13.5px">Customer upload link</b> <span class="muted">· unique to this lead${L(l,'Doc Link Shared At')?' · last shared '+fmtDT(+L(l,'Doc Link Shared At')):''}</span>
-          <div class="lnk"><span id="dLink">${esc(link)}</span></div>
-          <div class="share-row">
-            <a class="btn-sm2 wa" id="shWa" href="https://wa.me/91${esc(mobile)}?text=${encodeURIComponent(msg)}" target="_blank" rel="noopener">Send on WhatsApp</a>
-            <a class="btn-sm2" id="shSms" href="sms:+91${esc(mobile)}?body=${encodeURIComponent(msg)}">Send SMS</a>
-            <button class="btn-sm2" id="shCopy" type="button">Copy link</button>
-            ${L(l,'Doc Folder Link') ? `<a class="btn-sm2" href="${esc(L(l,'Doc Folder Link'))}" target="_blank" rel="noopener">Open Drive folder ↗</a>` : ''}
-          </div>
-        </div>
-      </div>
-      <div class="card"><h4><svg><use href="#i-clock"/></svg>Call preference &amp; source</h4><div class="kv">
-        ${kv('Call preference', L(l,'Call Preference')==='CALL NOW'?'<span class="badge-now">🔥 Call now</span>':L(l,'Call Preference')==='CALLBACK'?'<span class="badge-cb">⏰ Callback</span>':'—')}${kv('Callback slot', esc(L(l,'Callback Slot')))}
-        ${kv('Captured in office hours', esc(L(l,'Captured In Office Hours')))}${kv('Last updated', fmtDT(+L(l,'Updated At')))}
-        ${kv('Source / medium', esc([L(l,'UTM Source'),L(l,'UTM Medium')].filter(Boolean).join(' / ')))}${kv('Campaign', esc(L(l,'UTM Campaign')))}
-        ${kv('Ad (creative)', esc(L(l,'UTM Content')))}${kv('Ad set', esc(L(l,'UTM Term')))}
-        ${kv('Device', esc([L(l,'Device'),L(l,'In-App Browser')].filter(Boolean).join(' · ')))}${kv('Repeat lead', esc(L(l,'Repeat Lead')||'No'))}
+    <div style="display:grid;gap:8px;align-content:start">
+      <div class="card"><h4><svg><use href="#i-wallet"/></svg>Loan &amp; applicant</h4><div class="kv">
+        ${kv('Loan amount', '<span style="color:var(--blue)">'+rupee(L(l,'Loan Amount Required'))+'</span>')}${kv('Indicative EMI (13%·36m)', rupee(L(l,'Indicative EMI')))}${kv('Indicative eligible', rupee(L(l,'Indicative Eligible Amount')))}${kv('Current EMIs · FOIR', rupee(L(l,'Current Total EMIs')) + (L(l,'FOIR %')!==''?' · '+L(l,'FOIR %')+'%':''))}
+        ${kv('Full name (PAN)', esc(L(l,'Full Name (as per PAN)')))}${kv('Mobile', esc(mobile))}${kv('PAN', esc(L(l,'PAN')))}${kv('DOB · age', esc(L(l,'Date of Birth')) + (L(l,'Age')?' · '+L(l,'Age')+' yrs':''))}
+        ${kv('Employment', esc(L(l,'Employment Type')))}${kv(L(l,'Employment Type')==='Self Employed'?'Company / business':'Employer', esc(L(l,'Employer / Company Name')))}${kv('Monthly net income', rupee(L(l,'Monthly Net Income')))}${kv('Income mode', esc(L(l,'Salary Mode')))}
+        ${kv('Bank account', esc(L(l,'Salary / Savings Bank')))}${kv('CIBIL', cibil)}${kv('Residence', esc([L(l,'City'),L(l,'State'),L(l,'Pincode')].filter(Boolean).join(', ')), 'w2')}
+        ${kv('Eligibility flags', esc(L(l,'Eligibility Flags')), 'w2 '+(/Looks eligible/.test(L(l,'Eligibility Flags'))?'':'flag'))}${kv('Latest remark', esc(L(l,'Agent Remarks')), 'w2')}
       </div></div>
+      <div class="card"><h4><svg><use href="#i-doc"/></svg>Documents · ${esc(L(l,'Docs Uploaded')||'Pending')}</h4>
+        <div class="doc-grid" style="grid-template-columns:repeat(${plan.length},minmax(0,1fr))">${plan.map(docT).join('')}</div>
+        <p class="doc-note">Required for this lead (${high?'loan above ₹5 Lakh':'up to ₹5 Lakh'}, ${esc(L(l,'Employment Type')||'Salaried')}): ${esc(docPlanText(plan))}</p>
+      </div>
     </div>
-    <div class="dt-side" style="display:grid;gap:14px">
+    <div class="dt-side" style="display:grid;gap:8px;align-content:start">
       <form class="card form-g" id="dForm">
         <h4>Update lead</h4>
-        <div><label>Stage</label><select id="dStage">${STAGES_UI.map(s => `<option ${s===st?'selected':''}>${esc(s)}</option>`).join('')}</select></div>
-        <div><label>Assigned agent</label><select id="dAgent"><option value="">— Unassigned —</option>${agents.map(a => `<option ${a===L(l,'Assigned Agent')?'selected':''}>${esc(a)}</option>`).join('')}${L(l,'Assigned Agent') && !agents.includes(L(l,'Assigned Agent')) ? `<option selected>${esc(L(l,'Assigned Agent'))}</option>`:''}</select></div>
-        <div><label>Next follow-up</label><input type="datetime-local" id="dFollow" value="${toLocalInput(L(l,'Next Follow-up'))}"></div>
-        <div class="two"><div><label>Sanctioned ₹</label><input id="dSanc" inputmode="numeric" value="${esc(L(l,'Sanctioned Amount'))}"></div><div><label>Disbursed ₹</label><input id="dDisb" inputmode="numeric" value="${esc(L(l,'Disbursed Amount'))}"></div></div>
+        <div class="two"><div><label>Stage</label><select id="dStage">${STAGES_UI.map(s => `<option ${s===st?'selected':''}>${esc(s)}</option>`).join('')}</select></div>
+        <div><label>Assigned agent</label><select id="dAgent"><option value="">— Unassigned —</option>${agents.map(a => `<option ${a===L(l,'Assigned Agent')?'selected':''}>${esc(a)}</option>`).join('')}${L(l,'Assigned Agent') && !agents.includes(L(l,'Assigned Agent')) ? `<option selected>${esc(L(l,'Assigned Agent'))}</option>`:''}</select></div></div>
+        <div class="three"><div><label>Next follow-up</label><input type="datetime-local" id="dFollow" value="${toLocalInput(L(l,'Next Follow-up'))}"></div><div><label>Sanctioned ₹</label><input id="dSanc" inputmode="numeric" value="${esc(L(l,'Sanctioned Amount'))}"></div><div><label>Disbursed ₹</label><input id="dDisb" inputmode="numeric" value="${esc(L(l,'Disbursed Amount'))}"></div></div>
         <div id="dRejWrap" ${['Rejected','Not Eligible','Not Interested'].includes(st)?'':'hidden'}><label>Reason</label><input id="dRej" value="${esc(L(l,'Rejection Reason'))}" placeholder="e.g. Low CIBIL, income below policy"></div>
         <div><label>Add a remark</label><textarea id="dRemark" placeholder="Call outcome, customer questions, next step…"></textarea></div>
-        <button class="btn btn-primary" type="submit" id="dSave" style="padding:13px">Save changes</button>
-        ${L(l,'Agent Remarks') ? `<p class="hint">Latest: ${esc(L(l,'Agent Remarks'))}</p>` : ''}
+        <button class="btn btn-primary" type="submit" id="dSave">Save changes</button>
       </form>
       <div class="card"><h4>Activity</h4><ul class="tl">${events.length ? events.map(e => `<li class="${evIcon(e)}">${evText(e)}<small>${fmtDT(+e.t)}${e.by?' · '+esc(e.by):''}</small></li>`).join('') : '<li class="c">No activity yet</li>'}</ul></div>
     </div>
   </div>`;
   $('#dBack').onclick = () => { showView('vList'); loadLeads(true); };
   { const c = $('.stp.cur'); if (c) c.parentElement.scrollLeft = Math.max(0, c.offsetLeft - 60); }
-  $$('.stp').forEach(s => s.onclick = () => { $('#dStage').value = s.dataset.s; $('#dStage').dispatchEvent(new Event('change')); $('#dForm').scrollIntoView({behavior:'smooth', block:'center'}); });
+  $$('.stp').forEach(s => s.onclick = () => { $('#dStage').value = s.dataset.s; $('#dStage').dispatchEvent(new Event('change')); $('#dStage').focus(); });
   $('#dStage').onchange = e => { $('#dRejWrap').hidden = !['Rejected','Not Eligible','Not Interested'].includes(e.target.value); };
   const logShare = ch => crmApi('shareDocLink', { leadId: L(l,'Lead ID'), channel: ch }).then(() => crmToast(`Link shared via ${ch} ✓`)).catch(()=>{});
   $('#shWa').addEventListener('click', () => logShare('WhatsApp'));
@@ -1722,7 +2064,7 @@ function renderDetail(l, events){
     try {
       const r = await crmApi('updateLead', { leadId: L(l,'Lead ID'), fields, remark: $('#dRemark').value.trim() });
       if (r.unchanged){ crmToast('No changes to save'); }
-      else { const n = {}; r.headers.forEach((h,i) => n[h] = r.row[i]); const i = CRM.leads.findIndex(x => x['Lead ID']===n['Lead ID']); if (i>-1) CRM.leads[i] = n; renderDetail(n, r.events||[]); crmToast('Saved ✓'); return; }
+      else { const n = {}; r.headers.forEach((h,i) => n[h] = r.row[i]); const i = CRM.leads.findIndex(x => x['Lead ID']===n['Lead ID']); if (i>-1) CRM.leads[i] = n; renderDetail(n, r.events||[], r.plan); crmToast('Saved ✓'); return; }
     } catch(err){ crmToast(err.message); }
     b.disabled = false; b.textContent = 'Save changes';
   };
